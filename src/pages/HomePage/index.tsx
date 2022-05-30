@@ -52,6 +52,7 @@ export default function HomePage(): JSX.Element {
   const { recipes, fetched: recipesFetched } = useSelector((state) => state.recipeState);
   const { users, fetched: usersFetched } = useSelector((state) => state.userState);
 
+  const sortedRecipes = useMemo(() => Object.values(recipes).sort((a, b) => a.name.localeCompare(b.name)), [recipes]);
   const cartCount = useMemo(() => {
     const uniqueIngredients = meals.reduce<Ingredient[]>((prevA, meal) => {
       return [
@@ -263,7 +264,7 @@ export default function HomePage(): JSX.Element {
           </Tooltip>
         </Flex>
         <Box>
-          {Object.values(recipes).map((recipe) => (
+          {sortedRecipes.map((recipe) => (
             <RecipeCard
               key={recipe.id}
               recipe={recipe}

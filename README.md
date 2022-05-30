@@ -28,7 +28,7 @@ A working demo of the app can be found here:
 
 1. Create a new Firebase project via the Firebase Console.
 2. Create a web app via `Project settings` > `Add app`.
-3. Open `_firebase/index.tsx` and copy your Firebase project settings from your to the `firebaseConfig` constant.
+3. Open `src/_firebase/index.tsx` and copy your Firebase project settings from your to the `firebaseConfig` constant.
 
 ## 💿 Installation
 
@@ -56,4 +56,4 @@ In order to deploy to Firebase Hosting, a Firebase project must be initialized u
 yarn deploy
 ```
 
-If deploying to another provider, run their respective script to deploy from the `build` folder.
+If deploying to another provider, run their respective script to deploy from the `src/build` folder.
