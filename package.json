@@ -1,21 +1,44 @@
 {
   "name": "family-meal-planner",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.0",
+    "@chakra-ui/react": "^2.0.2",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "dayjs": "^1.11.2",
+    "firebase": "^9.8.1",
+    "framer-motion": "^6",
     "react": "^18.1.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dnd-touch-backend": "^16.0.1",
     "react-dom": "^18.1.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-icons": "^4.3.1",
+    "react-redux": "^8.0.1",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "typescript": "^4.6.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": [
