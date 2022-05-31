@@ -5,6 +5,7 @@ import { FormEvent, useMemo, useState } from 'react';
 
 import { Ingredient } from 'types/ingredient';
 import { Props } from 'components/IngredientLists/types';
+import { sortWithEmoji } from 'utils/common';
 
 export default function IngredientLists(props: Props): JSX.Element {
   const toast = useToast();
@@ -15,12 +16,12 @@ export default function IngredientLists(props: Props): JSX.Element {
     () =>
       ingredients
         .filter((ingredient) => !selectedIngredients.has(ingredient))
-        .sort((a, b) => a.name.localeCompare(b.name)),
+        .sort((a, b) => sortWithEmoji(a.name, b.name)),
     [ingredients, selectedIngredients],
   );
 
   const sortedSelectedIngredients = useMemo(
-    () => Array.from(selectedIngredients).sort((a, b) => a.name.localeCompare(b.name)),
+    () => Array.from(selectedIngredients).sort((a, b) => sortWithEmoji(a.name, b.name)),
     [selectedIngredients],
   );
 

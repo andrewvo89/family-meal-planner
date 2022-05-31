@@ -32,6 +32,7 @@ import { firestore } from '_firebase';
 import { setIngredients } from 'store/ingredient';
 import { setRecipes } from 'store/recipe';
 import { setUsers } from 'store/user';
+import { sortWithEmoji } from 'utils/common';
 import { useDispatch } from 'hooks/useDispatch';
 import { useSelector } from 'hooks/useSelector';
 
@@ -52,7 +53,7 @@ export default function HomePage(): JSX.Element {
   const { recipes, fetched: recipesFetched } = useSelector((state) => state.recipeState);
   const { users, fetched: usersFetched } = useSelector((state) => state.userState);
 
-  const sortedRecipes = useMemo(() => Object.values(recipes).sort((a, b) => a.name.localeCompare(b.name)), [recipes]);
+  const sortedRecipes = useMemo(() => Object.values(recipes).sort((a, b) => sortWithEmoji(a.name, b.name)), [recipes]);
   const cartCount = useMemo(() => {
     const uniqueIngredients = meals.reduce<Ingredient[]>((prevA, meal) => {
       return [
@@ -149,7 +150,7 @@ export default function HomePage(): JSX.Element {
                 ...prev[1],
                 [meal.day]: {
                   ...dayMeals,
-                  [meal.time]: [...timeMeals, meal].sort((a, b) => a.recipe.name.localeCompare(b.recipe.name)),
+                  [meal.time]: [...timeMeals, meal].sort((a, b) => sortWithEmoji(a.recipe.name, b.recipe.name)),
                 },
               },
             ];

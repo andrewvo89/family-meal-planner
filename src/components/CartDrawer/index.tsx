@@ -28,6 +28,7 @@ import { CopyIcon } from '@chakra-ui/icons';
 import { Ingredient } from 'types/ingredient';
 import { TimeDetails } from 'types/day';
 import { dayName } from 'utils/date';
+import { sortWithEmoji } from 'utils/common';
 
 export function CartDrawer(props: Props): JSX.Element | null {
   const toast = useToast();
@@ -49,7 +50,7 @@ export function CartDrawer(props: Props): JSX.Element | null {
             ),
           ];
         }, [])
-        .sort((a, b) => a.name.localeCompare(b.name));
+        .sort((a, b) => sortWithEmoji(a.name, b.name));
       return uniqueIngredients.map((ingredient) => {
         const exists = prevCart.find((item) => item.ingredient === ingredient);
         const recipes = meals
@@ -72,7 +73,7 @@ export function CartDrawer(props: Props): JSX.Element | null {
               return { ...recipe, meals: recipeMeals };
             });
           }, [])
-          .sort((a, b) => a.recipe.name.localeCompare(b.recipe.name));
+          .sort((a, b) => sortWithEmoji(a.recipe.name, b.recipe.name));
         return { ingredient, recipes, quantity: exists ? exists.quantity : 1 };
       });
     });

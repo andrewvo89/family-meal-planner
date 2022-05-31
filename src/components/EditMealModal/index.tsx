@@ -20,6 +20,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Props } from 'components/EditMealModal/types';
 import { TimeDetails } from 'types/day';
 import { dayName } from 'utils/date';
+import { sortWithEmoji } from 'utils/common';
 import { useSelector } from 'hooks/useSelector';
 
 export default function EditMealModal(props: Props): JSX.Element {
@@ -35,7 +36,7 @@ export default function EditMealModal(props: Props): JSX.Element {
   );
 
   const sortedIngredients = useMemo(
-    () => [...meal.recipe.ingredients].sort((a, b) => a.name.localeCompare(b.name)),
+    () => [...meal.recipe.ingredients].sort((a, b) => sortWithEmoji(a.name, b.name)),
     [meal],
   );
 
