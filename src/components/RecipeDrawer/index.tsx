@@ -69,6 +69,8 @@ export default function RecipeDrawer(props: Props): JSX.Element {
     setIsLoading(initialIsLoading);
     setDeleteIngredient(undefined);
     setDeleteRecipe(undefined);
+    setName('');
+    setSelectedIngredients(new Set());
     onClose();
   }
 

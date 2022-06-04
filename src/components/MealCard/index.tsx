@@ -50,7 +50,7 @@ export default function MealCard(props: Props): JSX.Element {
         }
       },
     }),
-    [meal],
+    [meal.id],
   );
 
   async function onCreateMeal(params: WithFieldValue<MealDB>) {

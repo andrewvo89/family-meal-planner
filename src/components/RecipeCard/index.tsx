@@ -32,7 +32,7 @@ export default function RecipeCard(props: Props): JSX.Element {
         });
       },
     }),
-    [recipe],
+    [recipe.id],
   );
 
   async function onCreateMeal(params: WithFieldValue<MealDB>) {
